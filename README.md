@@ -26,8 +26,25 @@ Main goals:
 </p>
 
 ---
-## Design Principles
+## Index
 
+- [Overview](#overview)
+- [Design Principles](#design-principles)
+- [Software Architecture](#software-architecture)
+- [Main Components](#main-components)
+- [Quick Start](#quick-start)
+- [Execution Model](#execution-model)
+- [ROS 2 Interface](#ros-2-interface)
+- [Parameters](#parameters)
+- [Keyboard and Viewer Controls](#keyboard-and-viewer-controls)
+- [Requirements and Platform Support](#requirements-and-platform-support)
+- [Notes About Control](#notes-about-control)
+- [Known Issues and Future Work](#known-issues-and-future-work)
+- [Roadmap](#roadmap)
+- [License](#license)
+- [Author](#author)
+## Design Principles
+---
 ### Simplicity first
 
 The wrapper intentionally keeps MuJoCo visible instead of hiding it behind a complex abstraction layer. A new developer should quickly understand where the model is loaded, where the physics step is executed, where ROS 2 messages are exchanged, and where rendering is updated.
