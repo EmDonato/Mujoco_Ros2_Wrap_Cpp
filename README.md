@@ -19,9 +19,11 @@ Main goals:
 * keep the system simple, fast, and easy to extend.
 
 ---
-![Humanoid](docs/img/Humanoid.png)
-![dog](docs/img/dog.png)
-![arm](docs/img/arm.png)
+<p align="center">
+  <img src="docs/img/humanoid.png" alt="Humanoid" width="30%">
+  <img src="docs/img/dog.png" alt="Dog" width="30%">
+  <img src="docs/img/arm.png" alt="Arm" width="30%">
+</p>
 
 ---
 ## Design Principles
