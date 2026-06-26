@@ -1,0 +1,17 @@
+mj_ros2_wrap:
+  ros__parameters:
+    file_name: "Robots/unitree_go2/scene.xml"
+    cntrl_type: "TRQ"
+    time:
+      sim_time_us: 2000
+      render_fps: 60.0
+    topic:
+      odom_pub_ms: 10
+      twist_pub_ms: 5
+      joints_pub_ms: 5
+    viewer:
+      show_axes: false
+      show_points: false
+      show_force: false
+      show_joint: false
+      
