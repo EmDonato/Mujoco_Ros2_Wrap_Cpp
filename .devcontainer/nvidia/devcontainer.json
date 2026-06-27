@@ -2,7 +2,7 @@
   "name": "mj_wrap",
 
   "build": {
-    "dockerfile": "../docker/Dockerfile",
+    "dockerfile": "../../docker/Dockerfile",
     "context": ".."
   },
 
@@ -17,9 +17,8 @@
     "--net=host",
     "--ipc=host",
     
-    "--gpus=all",
-
     "--device=/dev/dri",
+    "--gpu=/all",
 
     "-e", "DISPLAY=${localEnv:DISPLAY}",
     "-e", "QT_X11_NO_MITSHM=1",
