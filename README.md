@@ -20,10 +20,11 @@ Main goals:
 
 ---
 <p align="center">
-  <img src="docs/img/humanoid.png" alt="Humanoid" width="33%">
-  <img src="docs/img/dog.png" alt="Dog" width="33%">
-  <img src="docs/img/arm.png" alt="Arm" width="33%">
+  <img src="docs/img/humanoid.png" alt="Humanoid" width="49%">
+  <img src="docs/img/dog.png" alt="Dog" width="49%">
+  <img src="docs/img/arm.png" alt="Arm" width="50%">
 </p>
+  
 
 ---
 ## Index
