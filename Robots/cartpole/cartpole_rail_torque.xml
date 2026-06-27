@@ -1,0 +1,61 @@
+<mujoco model="cartpole_rail_torque">
+  <compiler angle="degree" autolimits="true"/>
+
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="RK4"/>
+
+  <default>
+    <joint damping="0.02" armature="0.001"/>
+    <geom friction="0.8 0.005 0.0001" condim="3"/>
+    <motor ctrllimited="true"/>
+  </default>
+
+  <asset>
+    <material name="mat_floor" rgba="0.30 0.30 0.30 1"/>
+    <material name="mat_rail"  rgba="0.15 0.15 0.15 1"/>
+    <material name="mat_cart"  rgba="0.10 0.35 0.90 1"/>
+    <material name="mat_pole"  rgba="0.90 0.20 0.10 1"/>
+  </asset>
+
+  <worldbody>
+    <light name="light" pos="0 -3 4" dir="0 1 -1" diffuse="0.8 0.8 0.8"/>
+    <camera name="fixed" pos="0 -4 1.4" xyaxes="1 0 0 0 0.35 0.94"/>
+
+
+    <!-- Visual rail/binario -->
+    <geom name="rail_left"  type="box" pos="0  0.18 0.04" size="1.2 0.025 0.025" material="mat_rail" contype="0" conaffinity="0"/>
+    <geom name="rail_right" type="box" pos="0 -0.18 0.04" size="1.2 0.025 0.025" material="mat_rail" contype="0" conaffinity="0"/>
+    <geom name="rail_center" type="box" pos="0 0 0.015" size="1.2 0.015 0.015" material="mat_rail" contype="0" conaffinity="0"/>
+
+    <body name="cart" pos="0 0 0.14">
+      <joint name="cart_slide" type="slide" axis="1 0 0" limited="true" range="-1 1" damping="0.15"/>
+      <inertial pos="0 0 0" mass="1.0" diaginertia="0.02 0.02 0.02"/>
+      <geom name="cart_box" type="box" size="0.18 0.12 0.08" material="mat_cart"/>
+
+      <body name="pole" pos="0 0 0.10">
+        <joint name="pole_hinge" type="hinge" axis="0 1 0" limited="false" damping="0.005"/>
+        <geom name="pole_capsule" type="capsule" fromto="0.03 0 0  0.03 0 0.80" size="0.025" material="mat_pole"/>
+        <inertial pos="0.03 0 0.40" mass="0.20" diaginertia="0.006 0.006 0.0002"/>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <!-- Main cartpole input: ctrl is a FORCE [N] on the prismatic cart joint. -->
+    <motor name="cart_force" joint="cart_slide" gear="1" ctrlrange="-30 30"/>
+
+    <!-- Keep at 0 if you want the classic cartpole. -->
+    <motor name="pole_torque" joint="pole_hinge" gear="1" ctrlrange="-5 5"/>
+  </actuator>
+
+  <sensor>
+    <jointpos name="cart_position" joint="cart_slide"/>
+    <jointvel name="cart_velocity" joint="cart_slide"/>
+    <jointpos name="pole_angle" joint="pole_hinge"/>
+    <jointvel name="pole_angular_velocity" joint="pole_hinge"/>
+  </sensor>
+
+  <keyframe>
+    <!-- qpos: cart_slide, pole_hinge. qvel: cart_vel, pole_vel. -->
+    <key name="slightly_tilted" qpos="0 5" qvel="0 0" ctrl="0 0"/>
+  </keyframe>
+</mujoco>
