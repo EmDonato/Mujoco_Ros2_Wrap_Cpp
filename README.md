@@ -42,7 +42,6 @@ Main goals:
 - [Known Issues and Future Work](#known-issues-and-future-work)
 - [Roadmap](#roadmap)
 - [License](#license)
-- [Author](#author)
 ## Design Principles
 ---
 ### Simplicity first
@@ -190,6 +189,7 @@ Then select:
 ```text
 Dev Containers: Reopen in Container
 ```
+Note: if your machine does not have an NVIDIA GPU, use the "classics "devcontainer. If it does, use the nvidia devcontainer.
 
 VS Code will build and start the Docker-based development environment.
 
@@ -484,7 +484,7 @@ viewer:
 
 The project is distributed through a Docker-based development environment to provide a reproducible setup for ROS 2 and MuJoCo.
 
-The default configuration targets:
+The suggested configuration targets:
 
 * Linux x86_64;
 * Docker Engine;
@@ -506,7 +506,7 @@ nvidia-smi
 docker run --rm --gpus all ubuntu nvidia-smi
 ```
 
-If the last command fails, the default Dev Container configuration is not supported on that machine.
+If the last command fails, the nvidia Dev Container configuration is not supported on that machine.
 
 ### Container dependencies
 
@@ -536,7 +536,7 @@ ros-jazzy-rmw-cyclonedds-cpp
 
 MuJoCo physics runs on CPU, but the native viewer uses OpenGL.
 
-The Dev Container is launched with NVIDIA GPU support:
+The nvida Dev Container is launched with NVIDIA GPU support:
 
 ```json
 "--gpus=all"
@@ -656,8 +656,3 @@ This project is intended for research and educational use.
 
 MIT License
 
----
-
-## Author
-
-Emanuele Donato
